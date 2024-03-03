@@ -80,11 +80,10 @@
 
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-
-      <a class="btn-getstarted" href="index.html#about">Get Started</a>
-
+      <a class="btn-getstarted" href="{{route('login')}}">Login</a>
+      <a class="btn-getstarted" href="{{route('register')}}">Sign Up</a>
     </div>
-  </header><!-- End Header -->
+  </header>
 
   <main id="main">
     @yield('content')
