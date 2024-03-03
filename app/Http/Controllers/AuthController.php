@@ -21,12 +21,12 @@ class AuthController extends Controller
 
     public function authenticate(Request $request)
     {
-        $formfiled = $request->validate([
+        $credentials = $request->validate([
             'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($formfiled)) {
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
 
             return redirect()->intended('/');
@@ -39,15 +39,16 @@ class AuthController extends Controller
 
     public function store(Request $request){
         $validate = $request->validate([
-            'name' => 'required',
+            'username' => 'required',
             'email' => 'required|unique:users,email',
             'password' => 'required',
-            'confirm-password' => 'required|same:password'
+            'confirm_password' => 'required|same:password'
         ]);
         $data = $request->except('confirm-password', 'password');
         $data['password'] = Hash::make($request->password);
-        User::create($data);
-        return redirect('/login');
+        $user = User::create($data);
+        $user->roles()->attach([2]);
+        return redirect(route('login'));
     }
 
     public function logout(Request $request)
