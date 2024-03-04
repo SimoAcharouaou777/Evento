@@ -80,8 +80,15 @@
 
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
-      <a class="btn-getstarted" href="{{route('login')}}">Login</a>
-      <a class="btn-getstarted" href="{{route('register')}}">Sign Up</a>
+      <div>
+        @if(auth()->check())
+            <a class="btn-getstarted" href="{{route('logout')}}">Logout</a>
+            <a class="btn-getstarted" href="">switch to organizer</a>
+        @else
+            <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+            <a class="btn-getstarted" href="{{ route('register') }}">Sign Up</a>
+        @endif
+    </div>
     </div>
   </header>
 

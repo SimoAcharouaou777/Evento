@@ -18,8 +18,11 @@ Route::get('/', function () {
     return view('home');
 });
 
-
+Route::get('dashboard', function(){
+    return view('organizer.dashboard');
+});
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class, 'register'])->name('register');
 Route::post('/registerUser',[AuthController::class, 'store'])->name('store');
 Route::post('/loginUser',[AuthController::class, 'authenticate'])->name('authenticate');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
