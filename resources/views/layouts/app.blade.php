@@ -84,10 +84,11 @@
         @if(auth()->check())
             <a class="btn-getstarted" href="{{route('logout')}}">Logout</a>
             @if(auth()->user()->hasRole('organizer'))
-            <a class="btn-getstarted" href="{{route('swithback')}}">switch to user</a>
             <a class="btn-getstarted" href="{{route('organizer.index')}}">dashboard</a>
+            @elseif (auth()->user()->hasRole('admin'))
+            <a class="btn-getstarted" href="">admin dashboard</a>
             @else
-            <a class="btn-getstarted" href="{{route('roleswitch')}}">switch to organizer</a>
+            <a class="btn-getstarted" href="{{route('roleswitch') }}">switch to organizer</a>
             @endif
         @else
             <a class="btn-getstarted" href="{{ route('login') }}">Login</a>

@@ -28,6 +28,6 @@ Route::post('/registerUser',[AuthController::class, 'store'])->name('store');
 Route::post('/loginUser',[AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/switchToOrganizer',[RoleSwitchController::class, 'switchToOrganizer'])->name('roleswitch');
-Route::get('/switchToUser', [RoleSwitchController::class, 'swithchToUser'])->name('swithback');
+
 // organizer Controller 
 Route::resource('organizer',OrganizerControlelr::class);
