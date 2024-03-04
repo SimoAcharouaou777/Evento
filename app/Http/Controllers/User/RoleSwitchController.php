@@ -26,13 +26,5 @@ class RoleSwitchController extends Controller
         return redirect(route('organizer.index'));
     }
 
-    public function swithchToUser()
-    {
-        $user = Auth::user();
-        if($user){
-            Organizer::where('user_id', $user->id)->delete();
-            $user->roles()->sync([3]);
-            return redirect()->intended('/');
-        }
-    }
+
 }
