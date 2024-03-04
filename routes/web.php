@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Organizer\OrganizerControlelr;
+use App\Http\Controllers\User\RoleSwitchController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,11 +21,13 @@ Route::get('/', function () {
     return view('home');
 });
 
-Route::get('dashboard', function(){
-    return view('organizer.dashboard');
-});
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::get('/login',[AuthController::class,'login'])->name('login');
 Route::get('/register',[AuthController::class, 'register'])->name('register');
 Route::post('/registerUser',[AuthController::class, 'store'])->name('store');
 Route::post('/loginUser',[AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::get('/switchToOrganizer',[RoleSwitchController::class, 'switchToOrganizer'])->name('roleswitch');
+Route::get('/switchToUser', [RoleSwitchController::class, 'swithchToUser'])->name('swithback');
+// organizer Controller 
+Route::resource('organizer',OrganizerControlelr::class);
