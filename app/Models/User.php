@@ -52,7 +52,14 @@ class User extends Authenticatable
         return $this->roles->contains('name', $role);
     }
 
-    
+    public function organizers()
+    {
+        return $this->hasOne(Organizer::class);
+    }
 
+    public function events()
+    {
+        return $this->belongsToMany(Event::class);
+    }
    
 }
