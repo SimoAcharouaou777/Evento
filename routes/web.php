@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\BaneUserController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
@@ -29,14 +31,7 @@ Route::post('/registerUser',[AuthController::class, 'store'])->name('store');
 Route::post('/loginUser',[AuthController::class, 'authenticate'])->name('authenticate');
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/switchToOrganizer',[RoleSwitchController::class, 'switchToOrganizer'])->name('roleswitch');
-
-// organizer Controller 
-Route::resource('organizer',OrganizerControlelr::class);
-//forgetPassword Controller
-
-// Show the form to request a password reset link
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('password.forget');
-
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
@@ -45,3 +40,11 @@ Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showRes
 
 // Handle the password reset request
 Route::post('/reset-password', [ForgotPasswordController::class, 'reset'])->name('password.update');
+
+// organizer Controller 
+Route::resource('organizer',OrganizerControlelr::class);
+//admin controller 
+Route::resource('admin', AdminController::class);
+
+//ban user
+Route::put('banned/{user}', [BaneUserController::class, 'banUser'])->name('banuser');
