@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -12,7 +14,9 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::all();
+        $roles = Role::all();
+        return view('admin.dashboard', compact('users','roles'));
     }
 
     /**
@@ -52,7 +56,14 @@ class AdminController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $user = User::find($id);
+        $request->validate([
+            'role' => 'required|in:admin,partner,user',
+        ]);
+        $roleName = $request->input('role');
+        $role = Role::where('name', $roleName)->first(); 
+        $user->roles()->sync([$role->id]);
+        return redirect(route('admin.index'));
     }
 
     /**
