@@ -86,7 +86,7 @@
             @if(auth()->user()->hasRole('organizer'))
             <a class="btn-getstarted" href="{{route('organizer.index')}}">dashboard</a>
             @elseif (auth()->user()->hasRole('admin'))
-            <a class="btn-getstarted" href="">admin dashboard</a>
+            <a class="btn-getstarted" href="{{route('admin.index')}}">admin dashboard</a>
             @else
             <a class="btn-getstarted" href="{{route('roleswitch') }}">switch to organizer</a>
             @endif

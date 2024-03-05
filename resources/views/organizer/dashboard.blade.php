@@ -179,8 +179,9 @@
       <div class="row">
         <div class="col-12">
           <div class="card mb-4">
-            <div class="card-header pb-0">
-              <h6>Authors table</h6>
+            <div class="card-header pb-0 d-flex justify-content-between">
+              <h6>Events table</h6>
+              <button class="btn btn-dark col-md-1" data-bs-toggle="modal" data-bs-target="#addModal">+</button>
             </div>
             <div class="card-body px-0 pt-0 pb-2">
               <div class="table-responsive p-0">
@@ -371,6 +372,74 @@
         </div>
       </div>
      
+      {{-- add modal  --}}
+
+         {{-- Add Modal  --}}
+         <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Creat a new Event</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <div>
+                  @if($errors->any())
+                  <ul>
+                    @foreach($errors->all() as $error)
+                    <li>
+                      {{$error}}
+                    </li>
+                    @endforeach
+                  </ul>
+                  @endif
+                </div>
+                  <form id="addBookForm" action="" method="post" enctype="multipart/form-data">
+                  
+                      @csrf
+                  
+                  <fieldset>
+                     
+                      <div class="mb-3">
+                          <label for="tite" class="form-label">Event Title</label>
+                          <input type="text" class="form-control" id="title" name="title" required>
+                      </div>
+                    
+                      <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <input type="text" class="form-control" id="description" name="description" required>
+                     </div>
+                     <div class="mb-3">
+                      <label for="start_date" class="form-label">Start Date</label>
+                      <input type="date" class="form-control" id="start_date" name="start_date" required>
+                     </div>
+                     <div class="mb-3">
+                      <label for="End_date" class="form-label">End Date</label>
+                      <input type="date" class="form-control" id="End_date" name="End_date" required>
+                     </div>
+                     <div class="mb-3">
+                      <label for="location" class="form-label">Location</label>
+                      <input type="text" class="form-control" id="location" name="location" required>
+                     </div>
+                     <div class="mb-3">
+                      <label for="available_seats" class="form-label">Available Seats</label>
+                      <input type="number" class="form-control" id="available_seats" name="available_seats" required>
+                     </div>
+                      <div class="mb-3">
+                        <label for="image" class="form-label">Image</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                      </div>
+                  </fieldset>
+                      <button type="submit" class="btn btn-primary">ADD</button>
+                  </form>
+              </div>
+            
+            </div>
+          </div>
+      </div>
+
+      {{-- add modal  --}}
+
       <footer class="footer pt-3  ">
         <div class="container-fluid">
           <div class="row align-items-center justify-content-lg-between">
