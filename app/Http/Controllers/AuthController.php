@@ -26,10 +26,10 @@ class AuthController extends Controller
             'password' => ['required'],
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $request->has('remembetrMe'))) {
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            return redirect(route('home'));
         }
 
         return back()->withErrors([
