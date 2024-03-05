@@ -28,7 +28,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials, $request->has('remembetrMe'))) {
             $request->session()->regenerate();
-
+            Auth::user()->update(['status' => 'online']);
             return redirect(route('home'));
         }
 
@@ -53,10 +53,9 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        Auth::user()->update(['status' => 'offline']);
         Auth::logout();
-
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
 
         return redirect(route('home'));
