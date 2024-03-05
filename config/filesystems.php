@@ -36,6 +36,24 @@ return [
             'throw' => false,
         ],
 
+        'media' => [
+            'driver' => 'local',
+            'root'   => public_path('media'),
+            'url'    => env('APP_URL').'/media',
+        ],
+
+        'media_users' => [
+            'driver' => 'local',
+            'root'   => public_path('media/users'),
+            'url'    => env('APP_URL').'/media/users',
+        ],
+
+        'media_events' => [
+            'driver' => 'local',
+            'root'   => public_path('media/events'),
+            'url'    => env('APP_URL').'/media/events',
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
