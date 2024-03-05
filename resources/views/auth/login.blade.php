@@ -29,8 +29,21 @@
                     <input type="password" class="form-control" id="password" name="password" required>
                 </div>
 
+                 <!-- Remember Me -->
+                 <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
+                    <label class="form-check-label" for="rememberMe">Remember Me</label>
+                </div>
+
                 <!-- Login Button -->
                 <button type="submit" class="btn btn-danger">Login</button>
+
+                <!-- Sign Up Link -->
+                <p class="mt-3">Don't have an account? <a href="{{ route('register') }}">Sign Up</a></p>
+
+                <!-- Forgot Password Link -->
+                <p><a href="{{route('password.forget')}}">Forgot Password?</a></p>
+
 
             </form>
 
