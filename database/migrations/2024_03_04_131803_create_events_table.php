@@ -19,6 +19,8 @@ return new class extends Migration
             $table->date('end_date');
             $table->string('location');
             $table->integer('available_seats');
+            $table->foreignId('category_id')->constrained('categories')->ondelete('cascade')->onUpdate('cascade');
+            $table->foreignId('organizer_id')->constrained('users')->ondelete('cascade')->onUpdate('cascade');
             $table->enum('status',['pending','accepted','refused'])->default('pending');
             $table->timestamps();
            
