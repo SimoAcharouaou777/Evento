@@ -188,182 +188,61 @@
                 <table class="table align-items-center mb-0">
                   <thead>
                     <tr>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Author</th>
-                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Function</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Event</th>
+                      <th class="text-uppercase text-secondary text-xxs font-weight-bolder opacity-7 ps-2">Description</th>
                       <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Status</th>
-                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Employed</th>
-                      <th class="text-secondary opacity-7"></th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Location</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">Start Date</th>
+                      <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder opacity-7">End Date</th>
+                      <th class="text-secondary opacity-7">Action</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach ($events as $event)
                     <tr>
                       <td>
                         <div class="d-flex px-2 py-1">
                           <div>
-                            <img src="{{asset('assets/img2/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user1">
+                            <img src="{{ $event->getFirstMediaUrl('media/events') }}" class="avatar avatar-sm me-3" alt="user1">
                           </div>
                           <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">John Michael</h6>
-                            <p class="text-xs text-secondary mb-0">john@creative-tim.com</p>
+                            <h6 class="mb-0 text-sm">{{$event->title}}</h6>
+                            <p class="text-xs text-secondary mb-0"> available seats : {{$event->available_seats}}</p>
                           </div>
                         </div>
                       </td>
                       <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Organization</p>
+                        <p class="text-xs font-weight-bold mb-0">{{$event->description}}</p>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">23/04/18</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="{{asset('assets/img2/team-3.jpg')}}" class="avatar avatar-sm me-3" alt="user2">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Alexa Liras</h6>
-                            <p class="text-xs text-secondary mb-0">alexa@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
+                        <span class="badge badge-sm bg-gradient-success">{{$event->status}}</span>
                       </td>
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
+                        <p class="text-xs font-weight-bold mb-0">{{$event->location}}</p>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">11/01/19</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="{{asset('assets/img2/team-4.jpg')}}" class="avatar avatar-sm me-3" alt="user3">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Laurent Perrier</h6>
-                            <p class="text-xs text-secondary mb-0">laurent@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Executive</p>
-                        <p class="text-xs text-secondary mb-0">Projects</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$event->start_date}}</span>
                       </td>
                       <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">19/09/17</span>
+                        <span class="text-secondary text-xs font-weight-bold">{{$event->end_date}}</span>
                       </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="{{asset('assets/img2/team-3.jpg')}}" class="avatar avatar-sm me-3" alt="user4">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Michael Levi</h6>
-                            <p class="text-xs text-secondary mb-0">michael@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programator</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Online</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">24/12/08</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
+                      <td class="d-flex gap-2">
+                        <form action="" method="post">
+                          @csrf
+                          @method('PUT')
+                          <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#editemodal{{ $event->id }}">
+                            Edit Event
+                          </button>
+                        </form>
+                  
+                      <form action="{{route('events.destroy',$event->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit" class="btn btn-primary btn-sm" >Delete Event</button>
+                    </form>
                       </td>
                     </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="{{asset('assets/img2/team-2.jpg')}}" class="avatar avatar-sm me-3" alt="user5">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Richard Gran</h6>
-                            <p class="text-xs text-secondary mb-0">richard@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Manager</p>
-                        <p class="text-xs text-secondary mb-0">Executive</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">04/10/21</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class="d-flex px-2 py-1">
-                          <div>
-                            <img src="{{asset('assets/img2/team-4.jpg')}}" class="avatar avatar-sm me-3" alt="user6">
-                          </div>
-                          <div class="d-flex flex-column justify-content-center">
-                            <h6 class="mb-0 text-sm">Miriam Eric</h6>
-                            <p class="text-xs text-secondary mb-0">miriam@creative-tim.com</p>
-                          </div>
-                        </div>
-                      </td>
-                      <td>
-                        <p class="text-xs font-weight-bold mb-0">Programtor</p>
-                        <p class="text-xs text-secondary mb-0">Developer</p>
-                      </td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-secondary">Offline</span>
-                      </td>
-                      <td class="align-middle text-center">
-                        <span class="text-secondary text-xs font-weight-bold">14/09/20</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="javascript:;" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                          Edit
-                        </a>
-                      </td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>
@@ -372,7 +251,7 @@
         </div>
       </div>
      
-      {{-- add modal  --}}
+
 
          {{-- Add Modal  --}}
          <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -394,7 +273,7 @@
                   </ul>
                   @endif
                 </div>
-                  <form id="addBookForm" action="" method="post" enctype="multipart/form-data">
+                  <form id="addBookForm" action="{{route('events.store')}}" method="post" enctype="multipart/form-data">
                   
                       @csrf
                   
@@ -415,7 +294,7 @@
                      </div>
                      <div class="mb-3">
                       <label for="End_date" class="form-label">End Date</label>
-                      <input type="date" class="form-control" id="End_date" name="End_date" required>
+                      <input type="date" class="form-control" id="End_date" name="end_date" required>
                      </div>
                      <div class="mb-3">
                       <label for="location" class="form-label">Location</label>
@@ -425,10 +304,19 @@
                       <label for="available_seats" class="form-label">Available Seats</label>
                       <input type="number" class="form-control" id="available_seats" name="available_seats" required>
                      </div>
-                      <div class="mb-3">
-                        <label for="image" class="form-label">Image</label>
-                        <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
-                      </div>
+                     <div class="mb-3">
+                      <label for="image" class="form-label">Image</label>
+                      <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                     </div>
+                    <div class="mb-3">
+                      <label for="category" class="form-label">Category</label>
+                      <select class="form-select" id="category" name="category" required>
+                        <option value="">Select a category</option>
+                        @foreach ($categories as $category)
+                          <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                      </select>
+                    </div>
                   </fieldset>
                       <button type="submit" class="btn btn-primary">ADD</button>
                   </form>
@@ -439,6 +327,83 @@
       </div>
 
       {{-- add modal  --}}
+
+      {{-- Edite Modal  --}}
+      @foreach ($events as $event)
+      <div class="modal fade" id="editemodal{{$event->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Edite Event</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <div>
+                @if($errors->any())
+                <ul>
+                  @foreach($errors->all() as $error)
+                  <li>
+                    {{$error}}
+                  </li>
+                  @endforeach
+                </ul>
+                @endif
+              </div>
+                <form id="addBookForm" action="{{route('events.update', $event->id)}}" method="post" enctype="multipart/form-data">
+                @method('PUT')
+                    @csrf
+                <fieldset>
+                   
+                    <div class="mb-3">
+                        <label for="tite" class="form-label">Event Title</label>
+                        <input type="text" class="form-control" id="title" value="{{$event->title}}" name="title" required>
+                    </div>
+                  
+                    <div class="mb-3">
+                      <label for="description" class="form-label">Description</label>
+                      <input type="text" class="form-control" id="description" value="{{$event->description}}" name="description" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="start_date" class="form-label">Start Date</label>
+                    <input type="date" class="form-control" id="start_date" value="{{$event->start_date}}" name="start_date" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="End_date" class="form-label">End Date</label>
+                    <input type="date" class="form-control" id="End_date" value="{{$event->end_date}}" name="end_date" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" id="location" value="{{$event->location}}" name="location" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="available_seats" class="form-label">Available Seats</label>
+                    <input type="number" class="form-control" id="available_seats" value="{{$event->available_seats}}" name="available_seats" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="image" class="form-label">Image</label>
+                    <input type="file" class="form-control" id="image" name="image" accept="image/*" required>
+                   </div>
+                   <div class="mb-3">
+                    <label for="category" class="form-label">Category</label>
+                    <select class="form-select" id="category" name="category" required>
+                      <option value="">Select a category</option>
+                      @foreach ($categories as $category)
+                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                   
+                </fieldset>
+                    <button type="submit" class="btn btn-primary">ADD</button>
+                </form>
+            </div>
+          
+          </div>
+        </div>
+    </div>
+    @endforeach
+
+    {{-- Edite Modal  --}}
 
       <footer class="footer pt-3  ">
         <div class="container-fluid">
