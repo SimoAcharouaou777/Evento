@@ -2,11 +2,17 @@
 
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\BaneUserController;
+use App\Http\Controllers\Admin\category\CategoryController;
+use App\Http\Controllers\Admin\events\BlogControlelr;
+use App\Http\Controllers\Admin\events\DetailsController;
+use App\Http\Controllers\Admin\events\ManageEventsController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Organizer\events\EventController;
 use App\Http\Controllers\Organizer\OrganizerControlelr;
 use App\Http\Controllers\User\RoleSwitchController;
+use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -21,7 +27,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    $events = Event::all();
+    return view('home', compact('events'));
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -32,6 +39,8 @@ Route::post('/loginUser',[AuthController::class, 'authenticate'])->name('authent
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/switchToOrganizer',[RoleSwitchController::class, 'switchToOrganizer'])->name('roleswitch');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('password.forget');
+Route::get('/blog',[BlogControlelr::class, 'index'])->name('blog');
+Route::get('/details',[DetailsController::class, 'index'])->name('details');
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
@@ -48,3 +57,9 @@ Route::resource('admin', AdminController::class);
 
 //ban user
 Route::put('banned/{user}', [BaneUserController::class, 'banUser'])->name('banuser');
+// event controller 
+Route::resource('events',EventController::class);
+// category
+Route::resource('category',CategoryController::class);
+//admin manage categories
+Route::resource('admin_events',ManageEventsController::class);
