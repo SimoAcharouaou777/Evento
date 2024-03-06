@@ -24,4 +24,5 @@ class Organizer extends Model
     {
         return $this->hasMany(Event::class);
     }
+    
 }
