@@ -3,12 +3,16 @@
 namespace App\Http\Controllers\Admin\events;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class BlogControlelr extends Controller
 {
     public function index()
     {
-        return view('blogs.blog');
+        $categories = Category::all();
+        $events = Event::where('status', 'accepted')->paginate(3);
+        return view('blogs.blog', compact('events','categories'));
     }
 }

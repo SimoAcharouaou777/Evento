@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Organizer\events;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
+use App\Models\Organizer;
 use Illuminate\Http\Request;
 
 
@@ -30,7 +31,9 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $organizerId = auth()->id();
+        $user = auth()->user();
+        $organizerId = Organizer::where('user_id', $user->id)->first()->id;
+        
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',

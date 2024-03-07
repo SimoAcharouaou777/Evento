@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\events\BlogControlelr;
 use App\Http\Controllers\Admin\events\DetailsController;
 use App\Http\Controllers\Admin\events\ManageEventsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FilterController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Organizer\events\EventController;
@@ -68,3 +69,10 @@ Route::resource('events',EventController::class);
 Route::resource('category',CategoryController::class);
 //admin manage categories
 Route::resource('admin_events',ManageEventsController::class);
+
+
+
+
+//search 
+Route::get('/SearchEvent/{search}', [FilterController::class, 'search'])->name('SearchEvent');
+Route::get('/FilterEvent/{search}', [FilterController::class, 'FilterEvent'])->name('FilterEvent');
