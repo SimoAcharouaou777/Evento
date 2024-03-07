@@ -307,24 +307,27 @@
           <li data-filter=".filter-branding">Web</li>
         </ul><!-- End Portfolio Filters -->
 
-        @foreach ($events as $event)
+        
         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+          @foreach ($events as $event)
           <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
             <img src="{{ $event->getFirstMediaUrl('media/events') }}" class="img-fluid" alt="">
             <div class="portfolio-info">
               <h4>{{$event->title}}</h4>
               <p>Available seats : {{$event->available_seats}}</p>
               <a href="{{ $event->getFirstMediaUrl('media/events') }}" title=" available seats : {{$event->available_seats}}" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-              <a href="{{route('details')}}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
+              <a href="{{route('details',$event->id)}}" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
             </div>
-          </div><!-- End Portfolio Item -->
-        </div><!-- End Portfolio Container -->
-        @endforeach
+          </div>
+          @endforeach
+        </div>
+        
       </div>
 
     </div>
 
-  </section><!-- End Portfolio Section -->
+  </section>
+  <!-- End Portfolio Section -->
 
   <!-- Pricing Section - Home Page -->
   <section id="pricing" class="pricing">
