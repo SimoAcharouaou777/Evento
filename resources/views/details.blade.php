@@ -19,14 +19,17 @@
         {{ session('success') }}
      </div>
    @endif
-
+   @if(session('info'))
+   <div class="alert alert-info">
+       {{ session('info') }}
+   </div>
+   @endif
    @if(session('error'))
      <div class="alert alert-danger">
        {{ session('error') }}
      </div>
    @endif
         <div class="row gy-4">
-          @foreach ($events as $event)
             <div class="col-lg-8">
                 <div class="portfolio-details-img">
                     <img src="{{ $event->getFirstMediaUrl('media/events') }}" alt="image" style="width: 100%;">
@@ -45,12 +48,9 @@
                         <li><strong>End Date</strong>{{$event->end_date}}</li>
                     </ul>
                 </div>
-                <form action="" method="post">
-                  @csrf
-                  <button type="submit" class="btn btn-primary d-flex flex-column align-items-center">Get a Ticket</button>
-              </form>
+                
+                  <a href="{{route('getTicket',$event->id)}}" class="btn btn-primary d-flex flex-column align-items-center">Get a Ticket</a>
             </div>
-            @endforeach
         </div>
 
     </div>
