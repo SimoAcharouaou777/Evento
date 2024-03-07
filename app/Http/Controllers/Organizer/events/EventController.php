@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
+
 class EventController extends Controller
 {
     /**
@@ -38,15 +39,20 @@ class EventController extends Controller
             'location' => 'required',
             'available_seats' => 'required',
             'category' => 'required',
+            'ticketOption' => 'required|in:auto,manual',
             
         ]);
         $data['category_id'] = $request->input('category');
         $data['organizer_id'] = $organizerId;
-
+        $data['type'] = $request->input('ticketOption');
         $events = Event::create($data);
         if($request->hasFile('image')){
             $events->addMediaFromRequest('image')->toMediaCollection('media/events','media_events');
+
         }
+
+
+       
         return redirect(route('organizer.index'));
     }
 
