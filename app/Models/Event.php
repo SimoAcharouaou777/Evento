@@ -21,13 +21,14 @@ class Event extends Model implements HasMedia
         'category_id',
         'organizer_id',
         'status',
+        'type',
     ];
     public function users()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsToMany(User::class)->withPivot('status');
     }
 
-    public function categories()
+    public function category()
     {
         return $this->belongsTo(Category::class);
     }
