@@ -4,13 +4,16 @@ namespace App\Http\Controllers\Admin\events;
 
 use App\Http\Controllers\Controller;
 use App\Models\Event;
-use Illuminate\Http\Request;
+
+
 
 class DetailsController extends Controller
 {
-    public function index()
+    public function index($id)
     {
-        $events = Event::all();
-        return view('details', compact('events'));
+       
+        
+        $event = Event::find($id);
+        return view('details', compact('event'));
     }
 }
