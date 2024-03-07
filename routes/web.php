@@ -10,6 +10,8 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Organizer\events\EventController;
+use App\Http\Controllers\Organizer\events\GetTicketController;
+use App\Http\Controllers\Organizer\events\PartisipantController;
 use App\Http\Controllers\Organizer\OrganizerControlelr;
 use App\Http\Controllers\User\RoleSwitchController;
 use App\Models\Event;
@@ -27,7 +29,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $events = Event::all();
+    $events = Event::where('status','accepted')->get();
     return view('home', compact('events'));
 });
 
@@ -40,7 +42,10 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::get('/switchToOrganizer',[RoleSwitchController::class, 'switchToOrganizer'])->name('roleswitch');
 Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name('password.forget');
 Route::get('/blog',[BlogControlelr::class, 'index'])->name('blog');
-Route::get('/details',[DetailsController::class, 'index'])->name('details');
+Route::get('/details/{id}',[DetailsController::class, 'index'])->name('details');
+Route::get('/getTicket/{id}', [GetTicketController::class, 'getTicket'])->name('getTicket');
+Route::get('/partisipant',[PartisipantController::class, 'index'])->name('partisipant');
+Route::put('/acceptRequest/{event}/{user}', [PartisipantController::class, 'acceptRequest'])->name('acceptRequest');
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
