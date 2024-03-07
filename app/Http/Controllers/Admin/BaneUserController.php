@@ -14,3 +14,4 @@ class BaneUserController extends Controller
         return redirect(route('admin.index'));
     }
 }
+ 
