@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->ondelete('cascade')->onUpdate('cascade');
             $table->foreignId('organizer_id')->constrained('users')->ondelete('cascade')->onUpdate('cascade');
             $table->enum('status',['pending','accepted','refused'])->default('pending');
+            $table->enum('type',['auto','manual'])->default('auto');
             $table->timestamps();
            
         });
