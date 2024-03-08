@@ -14,7 +14,9 @@ use App\Http\Controllers\Organizer\events\EventController;
 use App\Http\Controllers\Organizer\events\GetTicketController;
 use App\Http\Controllers\Organizer\events\PartisipantController;
 use App\Http\Controllers\Organizer\OrganizerControlelr;
+use App\Http\Controllers\User\NotificationsController;
 use App\Http\Controllers\User\RoleSwitchController;
+use App\Http\Controllers\User\UserProfileController;
 use App\Models\Event;
 use Illuminate\Support\Facades\Route;
 
@@ -47,6 +49,7 @@ Route::get('/details/{id}',[DetailsController::class, 'index'])->name('details')
 Route::get('/getTicket/{id}', [GetTicketController::class, 'getTicket'])->name('getTicket');
 Route::get('/partisipant',[PartisipantController::class, 'index'])->name('partisipant');
 Route::put('/acceptRequest/{event}/{user}', [PartisipantController::class, 'acceptRequest'])->name('acceptRequest');
+Route::put('/downloadTicket/{event}', [GetTicketController::class, 'downloadTicket'])->name('downloadTicket');
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
 
@@ -69,7 +72,9 @@ Route::resource('events',EventController::class);
 Route::resource('category',CategoryController::class);
 //admin manage categories
 Route::resource('admin_events',ManageEventsController::class);
-
+//user
+Route::resource('profile', UserProfileController::class);
+Route::get('/notification', [NotificationsController::class, 'index'])->name('notification');
 
 
 
