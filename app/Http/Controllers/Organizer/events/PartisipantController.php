@@ -18,7 +18,9 @@ class PartisipantController extends Controller
     
     public function acceptRequest(Event $event, $user)
     {
+        $event->available_seats = $event->available_seats - 1;
         $event->users()->updateExistingPivot($user, ['status' => 'accepted']);
+        $event->save();
         return redirect()->back();
     }
 }
