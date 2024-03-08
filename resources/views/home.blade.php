@@ -244,27 +244,28 @@
 
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Features</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <h2>Most reserved Events</h2>
+      <p>Huryy Up And Be The Last One Wgo Gets Ticket</p>
     </div><!-- End Section Title -->
 
     <div class="container">
-
+      
       <div class="row gy-4 align-items-center features-item">
+        @foreach ($mostReservedEvents as $event)
         <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
-          <h3>Corporis temporibus maiores provident</h3>
+          <h3>{{$event->title}}</h3>
           <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.
+           {{$event->description}}
           </p>
-          <a href="#" class="btn btn-get-started">Get Started</a>
+          <a href="{{route('details', $event->id)}}" class="btn btn-get-started">Get Ticket</a>
         </div>
         <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
           <div class="image-stack">
-            <img src="assets/img/features-light-1.jpg" alt="" class="stack-front">
-            <img src="assets/img/features-light-2.jpg" alt="" class="stack-back">
+            <img src=" {{ $event->getFirstMediaUrl('media/events') }} " alt="" class="stack-front">
+            <img src="{{$event->getFirstMediaUrl('media/events')}}" alt="" class="stack-back">
           </div>
         </div>
+        @endforeach
       </div><!-- Features Item -->
 
       <div class="row gy-4 align-items-stretch justify-content-between features-item ">
@@ -764,91 +765,40 @@
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
       <h2>Recent Posts</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <p>Here Are our latest amazing events</p>
     </div><!-- End Section Title -->
 
     <div class="container">
 
       <div class="row gy-4">
-
+        @foreach ($lastEvent as $event )
+          
         <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
           <article>
 
             <div class="post-img">
-              <img src="assets/img/blog/blog-1.jpg" alt="" class="img-fluid">
+              <img src="{{$event->getFirstMediaUrl('media/events')}}" alt="" class="img-fluid">
             </div>
 
-            <p class="post-category">Politics</p>
+            <p class="post-category">{{$event->category->name}}</p>
 
             <h2 class="title">
-              <a href="blog-details.html">Dolorum optio tempore voluptas dignissimos</a>
+              <a href="{{route('details', $event->id)}}">{{$event->title}}</a>
             </h2>
 
             <div class="d-flex align-items-center">
               <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
               <div class="post-meta">
-                <p class="post-author">Maria Doe</p>
+                <p class="post-author">{{$event->organizer->username}}</p>
                 <p class="post-date">
-                  <time datetime="2022-01-01">Jan 1, 2022</time>
+                  <time datetime="2022-01-01">{{$event->start_date}}</time>
                 </p>
               </div>
             </div>
 
           </article>
         </div><!-- End post list item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-          <article>
-
-            <div class="post-img">
-              <img src="assets/img/blog/blog-2.jpg" alt="" class="img-fluid">
-            </div>
-
-            <p class="post-category">Sports</p>
-
-            <h2 class="title">
-              <a href="blog-details.html">Nisi magni odit consequatur autem nulla dolorem</a>
-            </h2>
-
-            <div class="d-flex align-items-center">
-              <img src="assets/img/blog/blog-author-2.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-              <div class="post-meta">
-                <p class="post-author">Allisa Mayer</p>
-                <p class="post-date">
-                  <time datetime="2022-01-01">Jun 5, 2022</time>
-                </p>
-              </div>
-            </div>
-
-          </article>
-        </div><!-- End post list item -->
-
-        <div class="col-xl-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-          <article>
-
-            <div class="post-img">
-              <img src="assets/img/blog/blog-3.jpg" alt="" class="img-fluid">
-            </div>
-
-            <p class="post-category">Entertainment</p>
-
-            <h2 class="title">
-              <a href="blog-details.html">Possimus soluta ut id suscipit ea ut in quo quia et soluta</a>
-            </h2>
-
-            <div class="d-flex align-items-center">
-              <img src="assets/img/blog/blog-author-3.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
-              <div class="post-meta">
-                <p class="post-author">Mark Dower</p>
-                <p class="post-date">
-                  <time datetime="2022-01-01">Jun 22, 2022</time>
-                </p>
-              </div>
-            </div>
-
-          </article>
-        </div><!-- End post list item -->
-
+        @endforeach
       </div><!-- End recent posts list -->
 
     </div>
