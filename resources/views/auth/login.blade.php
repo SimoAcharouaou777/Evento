@@ -13,20 +13,34 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-
+            @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
             <form action="{{route('authenticate')}}" method="post">
                 @csrf
                 @method('POST')
                 <!-- Email -->
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" name="email" required>
+                    <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" name="email" required>
+                    @error('email')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                 <!-- Password -->
                 <div class="mb-3">
                     <label for="password" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="password" name="password" required>
+                    <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password" required>
+                    @error('password')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                    @enderror
                 </div>
 
                  <!-- Remember Me -->

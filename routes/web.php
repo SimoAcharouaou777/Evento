@@ -32,8 +32,10 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $events = Event::where('status','accepted')->get();
-    return view('home', compact('events'));
+    $events = Event::where('status', 'accepted')->latest()->take(9)->get();
+    $mostReservedEvents = Event::where('status', 'accepted')->withCount('users')->orderBy('users_count', 'desc')->take(1)->get();
+    $lastEvent = Event::where('status', 'accepted')->latest()->take(3)->get();
+    return view('home', compact('events','mostReservedEvents','lastEvent'));
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
@@ -47,8 +49,8 @@ Route::get('/forgot-password', [ForgotPasswordController::class, 'index'])->name
 Route::get('/blog',[BlogControlelr::class, 'index'])->name('blog');
 Route::get('/details/{id}',[DetailsController::class, 'index'])->name('details');
 Route::get('/getTicket/{id}', [GetTicketController::class, 'getTicket'])->name('getTicket');
-Route::get('/partisipant',[PartisipantController::class, 'index'])->name('partisipant');
-Route::put('/acceptRequest/{event}/{user}', [PartisipantController::class, 'acceptRequest'])->name('acceptRequest');
+Route::get('/partisipant',[PartisipantController::class, 'index'])->name('partisipant')->middleware('role:organizer');
+Route::put('/acceptRequest/{event}/{user}', [PartisipantController::class, 'acceptRequest'])->name('acceptRequest')->middleware('role:organizer');
 Route::put('/downloadTicket/{event}', [GetTicketController::class, 'downloadTicket'])->name('downloadTicket');
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
@@ -60,9 +62,9 @@ Route::get('/reset-password/{token}', [ForgotPasswordController::class, 'showRes
 Route::post('/reset-password', [ForgotPasswordController::class, 'reset'])->name('password.update');
 
 // organizer Controller 
-Route::resource('organizer',OrganizerControlelr::class);
+Route::resource('organizer',OrganizerControlelr::class)->middleware('role:organizer');
 //admin controller 
-Route::resource('admin', AdminController::class);
+Route::resource('admin', AdminController::class)->middleware('role:admin');
 
 //ban user
 Route::put('banned/{user}', [BaneUserController::class, 'banUser'])->name('banuser');
@@ -71,10 +73,10 @@ Route::resource('events',EventController::class);
 // category
 Route::resource('category',CategoryController::class);
 //admin manage categories
-Route::resource('admin_events',ManageEventsController::class);
+Route::resource('admin_events',ManageEventsController::class)->middleware('role:admin');
 //user
-Route::resource('profile', UserProfileController::class);
-Route::get('/notification', [NotificationsController::class, 'index'])->name('notification');
+Route::resource('profile', UserProfileController::class)->middleware('role:organizer,user');
+Route::get('/notification', [NotificationsController::class, 'index'])->name('notification')->middleware('role:organizer,user');
 
 
 

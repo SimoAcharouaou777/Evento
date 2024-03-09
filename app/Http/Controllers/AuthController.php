@@ -27,6 +27,12 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials, $request->has('remembetrMe'))) {
+            if(Auth::user()->status == 'banned'){
+                Auth::logout();
+                return back()->withErrors([
+                    'email' => 'Your account has been banned.',
+                ]);
+            }
             $request->session()->regenerate();
             Auth::user()->update(['status' => 'online']);
             return redirect(route('home'));
