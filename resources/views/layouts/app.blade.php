@@ -43,64 +43,61 @@
   <header id="header" class="header fixed-top d-flex align-items-center">
     <div class="container-fluid d-flex align-items-center justify-content-between">
 
-      <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+        <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <h1>Evento</h1>
+            <span>.</span>
+        </a>
 
-        <h1>Append</h1>
-        <span>.</span>
-      </a>
-
-
-      <nav id="navmenu" class="navmenu">
-        <ul>
-          <li><a href="{{route('home')}}" class="active">Home</a></li>
-          <li><a href="">About</a></li>
-          <li><a href="">Services</a></li>
-          <li><a href="">Portfolio</a></li>
-          <li><a href="">Team</a></li>
-          <li><a href="{{route('blog')}}">Blog</a></li>
-          <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
-            <ul class="dd-box-shadow">
-              <li><a href="#">Dropdown 1</a></li>
-              <li class="dropdown has-dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down"></i></a>
-                <ul class="dd-box-shadow">
-                  <li><a href="#">Deep Dropdown 1</a></li>
-                  <li><a href="#">Deep Dropdown 2</a></li>
-                  <li><a href="#">Deep Dropdown 3</a></li>
-                  <li><a href="#">Deep Dropdown 4</a></li>
-                  <li><a href="#">Deep Dropdown 5</a></li>
-                </ul>
-              </li>
-              <li><a href="#">Dropdown 2</a></li>
-              <li><a href="#">Dropdown 3</a></li>
-              <li><a href="#">Dropdown 4</a></li>
+        <nav id="navmenu" class="navmenu">
+            <ul>
+                <li><a href="{{route('home')}}" class="active">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Team</a></li>
+                <li><a href="{{route('blog')}}">Events</a></li>
+                <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
+                    <ul class="dd-box-shadow">
+                        <li><a href="#">Dropdown 1</a></li>
+                        <li class="dropdown has-dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down"></i></a>
+                            <ul class="dd-box-shadow">
+                                <li><a href="#">Deep Dropdown 1</a></li>
+                                <li><a href="#">Deep Dropdown 2</a></li>
+                                <li><a href="#">Deep Dropdown 3</a></li>
+                                <li><a href="#">Deep Dropdown 4</a></li>
+                                <li><a href="#">Deep Dropdown 5</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Dropdown 2</a></li>
+                        <li><a href="#">Dropdown 3</a></li>
+                        <li><a href="#">Dropdown 4</a></li>
+                    </ul>
+                </li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
-          </li>
-          <li><a href="index.html#contact">Contact</a></li>
-        </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+        </nav>
 
-        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
-      </nav>
-      <div>
-        @if(auth()->check())
-            <a class="btn-getstarted" href="{{route('logout')}}">Logout</a>
-            @if(auth()->user()->hasRole('organizer'))
-            <a class="btn-getstarted" href="{{route('organizer.index')}}">dashboard</a>
-            <a class="btn-getstarted" href="{{route('profile.index')}}">Profile</a>
-
-            @elseif (auth()->user()->hasRole('admin'))
-            <a class="btn-getstarted" href="{{route('admin.index')}}">admin dashboard</a>
+        <div>
+            @if(auth()->check())
+                <a class="btn-getstarted" href="{{route('logout')}}">Logout</a>
+                @if(auth()->user()->hasRole('organizer'))
+                    <a class="btn-getstarted" href="{{route('organizer.index')}}">Dashboard</a>
+                @elseif (auth()->user()->hasRole('admin'))
+                    <a class="btn-getstarted" href="{{route('admin.index')}}">Admin Dashboard</a>
+                @else
+                    <a class="btn-getstarted" href="{{route('roleswitch') }}">Switch to Organizer</a>
+                @endif
+                <a class="btn-getstarted" href="{{route('profile.index')}}">Profile</a>
             @else
-            <a class="btn-getstarted" href="{{route('roleswitch') }}">switch to organizer</a>
-            <a class="btn-getstarted" href="{{route('profile.index')}}">Profile</a>
-
+                <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+                <a class="btn-getstarted" href="{{ route('register') }}">Sign Up</a>
             @endif
-        @else
-            <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
-            <a class="btn-getstarted" href="{{ route('register') }}">Sign Up</a>
-        @endif
+        </div>
+
     </div>
-    </div>
-  </header>
+</header>
+
 
   <main id="main">
     @yield('content')
@@ -113,63 +110,58 @@
       <div class="row gy-4">
         <div class="col-lg-5 col-md-12 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span>Append</span>
+            <span>Evento</span> <!-- Updated the brand name -->
           </a>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus.</p>
+          <p>Experience the joy of events. Your gateway to unforgettable moments. Join us on this exciting journey!</p>
           <div class="social-links d-flex mt-4">
-            <a href=""><i class="bi bi-twitter"></i></a>
-            <a href=""><i class="bi bi-facebook"></i></a>
-            <a href=""><i class="bi bi-instagram"></i></a>
-            <a href=""><i class="bi bi-linkedin"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
-
+  
         <div class="col-lg-2 col-6 footer-links">
-          <h4>Useful Links</h4>
+          <h4>Quick Links</h4>
           <ul>
             <li><a href="#">Home</a></li>
-            <li><a href="#">About us</a></li>
-            <li><a href="#">Services</a></li>
-            <li><a href="#">Terms of service</a></li>
-            <li><a href="#">Privacy policy</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Events</a></li>
+            <li><a href="#">Contact</a></li>
           </ul>
         </div>
-
+  
         <div class="col-lg-2 col-6 footer-links">
           <h4>Our Services</h4>
           <ul>
-            <li><a href="#">Web Design</a></li>
-            <li><a href="#">Web Development</a></li>
-            <li><a href="#">Product Management</a></li>
+            <li><a href="#">Event Planning</a></li>
+            <li><a href="#">Ticketing</a></li>
             <li><a href="#">Marketing</a></li>
-            <li><a href="#">Graphic Design</a></li>
+            <li><a href="#">Venue Management</a></li>
+            <li><a href="#">Promotions</a></li>
           </ul>
         </div>
-
+  
         <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
           <h4>Contact Us</h4>
-          <p>A108 Adam Street</p>
-          <p>New York, NY 535022</p>
+          <p>123 Event Street</p>
+          <p>New York, NY 10001</p>
           <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 5589 55488 55</span></p>
-          <p><strong>Email:</strong> <span>info@example.com</span></p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+1 555 1234 5678</span></p>
+          <p><strong>Email:</strong> <span>info@evento.com</span></p>
         </div>
-
       </div>
     </div>
-
+  
     <div class="container copyright text-center mt-4">
-      <p>&copy; <span>Copyright</span> <strong class="px-1">Append</strong> <span>All Rights Reserved</span></p>
+      <p>&copy; <span>2024</span> <strong class="px-1">EventHub</strong> <span>All Rights Reserved</span></p>
       <div class="credits">
-        <!-- All the links in the footer should remain intact. -->
-        <!-- You can delete the links only if you've purchased the pro version. -->
-        <!-- Licensing information: https://bootstrapmade.com/license/ -->
-        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
         Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </div>
-
-  </footer><!-- End Footer -->
+  
+  </footer>
+  <!-- End Footer -->
 
   <!-- Scroll Top Button -->
   <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
