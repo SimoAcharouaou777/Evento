@@ -36,13 +36,7 @@
                 @endforeach
             </select>
         </div>
-        <div class="col-md-4">
-            <label for="dateFilter" class="form-label">Sort by Date:</label>
-            <select class="form-select" id="dateFilter" onchange="sort()">
-                <option value="latest">Latest</option>
-                <option value="oldest">Oldest</option>
-            </select>
-        </div>
+      
     </div>
 </section>
 
@@ -68,11 +62,15 @@
             </h2>
 
             <div class="d-flex align-items-center">
-              <img src="assets/img/blog/blog-author.jpg" alt="" class="img-fluid post-author-img flex-shrink-0">
+              @if($event->organizer->hasMedia('media/users'))
+              <img src="{{$event->organizer->getFirstMediaUrl('media/users')}}" class="img-fluid" alt="">
+              @else
+              <img src="assets/img/team/team-1.jpg" class="img-fluid post-author-img flex-shrink-0" alt="">
+              @endif
               <div class="post-meta">
                 <p class="post-author">{{$event->organizer->username}}</p> 
                 <p class="post-date">
-                  <time datetime="2022-01-01">{{$event->start_date}}</time>
+                  <time datetime="2022-01-01"> start date : {{$event->start_date}}</time>
                 </p>
               </div>
             </div>
