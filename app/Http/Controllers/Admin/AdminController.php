@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Organizer;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -58,11 +59,22 @@ class AdminController extends Controller
     {
         $user = User::find($id);
         $request->validate([
-            'role' => 'required|in:admin,partner,user',
+            'role' => 'required|in:admin,organizer,user',
         ]);
         $roleName = $request->input('role');
         $role = Role::where('name', $roleName)->first(); 
         $user->roles()->sync([$role->id]);
+        if ($roleName == 'organizer') {
+            Organizer::create([
+                'username' => $user->username,
+                'user_id' => $user->id,
+            ]);
+        }else{
+            $organizer = Organizer::where('user_id',$user->id)->first();
+            if($organizer){
+                $organizer->delete();
+            }
+        }
         return redirect(route('admin.index'));
     }
 
