@@ -18,6 +18,7 @@ use App\Http\Controllers\User\NotificationsController;
 use App\Http\Controllers\User\RoleSwitchController;
 use App\Http\Controllers\User\UserProfileController;
 use App\Models\Event;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,7 +36,8 @@ Route::get('/', function () {
     $events = Event::where('status', 'accepted')->latest()->take(9)->get();
     $mostReservedEvents = Event::where('status', 'accepted')->withCount('users')->orderBy('users_count', 'desc')->take(1)->get();
     $lastEvent = Event::where('status', 'accepted')->latest()->take(3)->get();
-    return view('home', compact('events','mostReservedEvents','lastEvent'));
+    $userCount = User::count();
+    return view('home', compact('events','mostReservedEvents','lastEvent','userCount'));
 });
 
 Route::get('/home', [HomeController::class, 'index'])->name('home');
