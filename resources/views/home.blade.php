@@ -4,22 +4,9 @@
 
 <section id="hero" class="hero">
 
-    <img src="{{asset('assets/img/hero-bg.jpg')}}" alt="" data-aos="fade-in">
+    <img src="{{asset('assets/img/portfolio/eventCover.jpg')}}" alt="" data-aos="fade-in">
 
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-10">
-          <h2 data-aos="fade-up" data-aos-delay="100">Welcome to Our Website</h2>
-          <p data-aos="fade-up" data-aos-delay="200">We are team of talented designers making websites with Bootstrap</p>
-        </div>
-        <div class="col-lg-5">
-          <form action="#" class="sign-up-form d-flex" data-aos="fade-up" data-aos-delay="300">
-            <input type="text" class="form-control" placeholder="Enter email address">
-            <input type="submit" class="btn btn-primary" value="Sign up">
-          </form>
-        </div>
-      </div>
-    </div>
+
 
   </section><!-- End Hero Section -->
 
@@ -65,54 +52,55 @@
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
       <div class="row align-items-xl-center gy-5">
-
+    
         <div class="col-xl-5 content">
-          <h3>About Us</h3>
-          <h2>Ducimus rerum libero reprehenderit cumque</h2>
-          <p>Ipsa sint sit. Quis ducimus tempore dolores impedit et dolor cumque alias maxime. Enim reiciendis minus et rerum hic non. Dicta quas cum quia maiores iure. Quidem nulla qui assumenda incidunt voluptatem tempora deleniti soluta.</p>
-          <a href="#" class="read-more"><span>Read More</span><i class="bi bi-arrow-right"></i></a>
+          <h3>Discover Amazing Events</h3>
+          <h2>Experience Unforgettable Moments with Us</h2>
+          <p>Explore a world of exciting events that captivate your senses and create lasting memories. Our platform brings together a diverse range of gatherings, performances, and celebrations to enhance your social calendar. Join us in the celebration of life's special moments!</p>
+          <a href="{{route('blog')}}" class="read-more"><span>Explore Events</span><i class="bi bi-arrow-right"></i></a>
         </div>
-
+    
         <div class="col-xl-7">
           <div class="row gy-4 icon-boxes">
-
+    
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
               <div class="icon-box">
-                <i class="bi bi-buildings"></i>
-                <h3>Eius provident</h3>
-                <p>Magni repellendus vel ullam hic officia accusantium ipsa dolor omnis dolor voluptatem</p>
+                <i class="bi bi-calendar"></i>
+                <h3>Diverse Events</h3>
+                <p>Discover a rich tapestry of events ranging from cultural festivals and music concerts to sports extravaganzas. There's something for everyone's interests and passions.</p>
               </div>
             </div> <!-- End Icon Box -->
-
+    
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
               <div class="icon-box">
-                <i class="bi bi-clipboard-pulse"></i>
-                <h3>Rerum aperiam</h3>
-                <p>Autem saepe animi et aut aspernatur culpa facere. Rerum saepe rerum voluptates quia</p>
+                <i class="bi bi-ticket"></i>
+                <h3>Easy Ticketing</h3>
+                <p>Streamlined ticketing processes ensure a hassle-free experience. Secure your spot at the hottest events in town and make your reservations with just a few clicks.</p>
               </div>
             </div> <!-- End Icon Box -->
-
+    
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
               <div class="icon-box">
-                <i class="bi bi-command"></i>
-                <h3>Veniam omnis</h3>
-                <p>Omnis perferendis molestias culpa sed. Recusandae quas possimus. Quod consequatur corrupti</p>
+                <i class="bi bi-globe"></i>
+                <h3>Global Reach</h3>
+                <p>Our events platform spans across borders, connecting people from different corners of the world. Experience the diversity and richness of global celebrations.</p>
               </div>
             </div> <!-- End Icon Box -->
-
+    
             <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
               <div class="icon-box">
-                <i class="bi bi-graph-up-arrow"></i>
-                <h3>Delares sapiente</h3>
-                <p>Sint et dolor voluptas minus possimus nostrum. Reiciendis commodi eligendi omnis quideme lorenda</p>
+                <i class="bi bi-heart"></i>
+                <h3>Memorable Experiences</h3>
+                <p>Create cherished memories as you engage in unforgettable experiences. Join us in celebrating the joy, creativity, and beauty that events bring to our lives.</p>
               </div>
             </div> <!-- End Icon Box -->
-
+    
           </div>
         </div>
-
+    
       </div>
     </div>
+    
 
   </section><!-- End About Section -->
 
@@ -127,29 +115,29 @@
 
         <div class="col-lg-3 col-md-6">
           <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $userCount }}" data-purecounter-duration="1" class="purecounter"></span>
             <p>Clients</p>
           </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
           <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Projects</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $eventcount }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Events</p>
           </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
           <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Hours Of Support</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $participantCount }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Partisipant</p>
           </div>
         </div><!-- End Stats Item -->
 
         <div class="col-lg-3 col-md-6">
           <div class="stats-item text-center w-100 h-100">
-            <span data-purecounter-start="0" data-purecounter-end="32" data-purecounter-duration="1" class="purecounter"></span>
-            <p>Workers</p>
+            <span data-purecounter-start="0" data-purecounter-end="{{ $eventReserved }}" data-purecounter-duration="1" class="purecounter"></span>
+            <p>Events Reserved</p>
           </div>
         </div><!-- End Stats Item -->
 
@@ -164,80 +152,80 @@
 
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Services</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <h2>Discover Our Services</h2>
+      <p>Explore the diverse range of services we offer to enhance your event experience</p>
     </div><!-- End Section Title -->
-
+  
     <div class="container">
-
+  
       <div class="row gy-4">
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="100">
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
           <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-briefcase"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-calendar-event"></i></div>
             <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Lorem Ipsum</a></h4>
-              <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident</p>
-            </div>
-          </div>
-        </div>
-        <!-- End Service Item -->
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="200">
-          <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-card-checklist"></i></div>
-            <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Dolor Sitema</a></h4>
-              <p class="description">Minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat tarad limino ata</p>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Event Planning</a></h4>
+              <p class="description">Let us handle the details! Our expert event planning services ensure a seamless and unforgettable experience for your special occasion.</p>
             </div>
           </div>
         </div><!-- End Service Item -->
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="300">
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
           <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-bar-chart"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-music-note"></i></div>
             <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Sed ut perspiciatis</a></h4>
-              <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur</p>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Entertainment</a></h4>
+              <p class="description">From live music performances to captivating shows, our entertainment services add a touch of magic and excitement to your event.</p>
             </div>
           </div>
         </div><!-- End Service Item -->
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="400">
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
           <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-binoculars"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-camera"></i></div>
             <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Magni Dolores</a></h4>
-              <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Photography & Videography</a></h4>
+              <p class="description">Capture the special moments with our professional photography and videography services, ensuring memories that last a lifetime.</p>
             </div>
           </div>
         </div><!-- End Service Item -->
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="500">
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
           <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-brightness-high"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-people"></i></div>
             <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Nemo Enim</a></h4>
-              <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque</p>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Crowd Management</a></h4>
+              <p class="description">Ensure a smooth flow of your event with our crowd management services, creating a safe and enjoyable environment for all attendees.</p>
             </div>
           </div>
         </div><!-- End Service Item -->
-
-        <div class="col-lg-6 " data-aos="fade-up" data-aos-delay="600">
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
           <div class="service-item d-flex">
-            <div class="icon flex-shrink-0"><i class="bi bi-calendar4-week"></i></div>
+            <div class="icon flex-shrink-0"><i class="bi bi-palette"></i></div>
             <div>
-              <h4 class="title"><a href="services-details.html" class="stretched-link">Eiusmod Tempor</a></h4>
-              <p class="description">Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi</p>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Theme Design</a></h4>
+              <p class="description">Transform your event into a visually stunning experience with our creative theme design services, tailored to your unique preferences.</p>
             </div>
           </div>
         </div><!-- End Service Item -->
-
+  
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+          <div class="service-item d-flex">
+            <div class="icon flex-shrink-0"><i class="bi bi-chat"></i></div>
+            <div>
+              <h4 class="title"><a href="services-details.html" class="stretched-link">Guest Interaction</a></h4>
+              <p class="description">Enhance guest engagement with our interactive solutions, creating memorable interactions and fostering a sense of community.</p>
+            </div>
+          </div>
+        </div><!-- End Service Item -->
+  
       </div>
-
+  
     </div>
-
-  </section><!-- End Services Section -->
+  
+  </section>
+  <!-- End Services Section -->
 
   <!-- Features Section - Home Page -->
   <section id="features" class="features">
@@ -268,21 +256,7 @@
         @endforeach
       </div><!-- Features Item -->
 
-      <div class="row gy-4 align-items-stretch justify-content-between features-item ">
-        <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
-          <img src="assets/img/features-light-3.jpg" class="img-fluid" alt="">
-        </div>
-        <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
-          <h3>Sunt consequatur ad ut est nulla</h3>
-          <p>Cupiditate placeat cupiditate placeat est ipsam culpa. Delectus quia minima quod. Sunt saepe odit aut quia voluptatem hic voluptas dolor doloremque.</p>
-          <ul>
-            <li><i class="bi bi-check"></i> <span>Ullamco laboris nisi ut aliquip ex ea commodo consequat.</span></li>
-            <li><i class="bi bi-check"></i><span> Duis aute irure dolor in reprehenderit in voluptate velit.</span></li>
-            <li><i class="bi bi-check"></i> <span>Facilis ut et voluptatem aperiam. Autem soluta ad fugiat</span>.</li>
-          </ul>
-          <a href="#" class="btn btn-get-started align-self-start">Get Started</a>
-        </div>
-      </div><!-- Features Item -->
+
 
     </div>
 
@@ -293,8 +267,8 @@
 
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Portfolio</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <h2>Latest Events</h2>
+      <p>what are you waiting for git your ticket now </p>
     </div><!-- End Section Title -->
 
     <div class="container">
@@ -331,163 +305,98 @@
   <!-- End Portfolio Section -->
 
   <!-- Pricing Section - Home Page -->
-  <section id="pricing" class="pricing">
 
-    <!--  Section Title -->
-    <div class="container section-title" data-aos="fade-up">
-      <h2>Pricing</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-    </div><!-- End Section Title -->
-
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-
-      <div class="row g-4">
-
-        <div class="col-lg-4">
-          <div class="pricing-item">
-            <h3>Free Plan</h3>
-            <div class="icon">
-              <i class="bi bi-box"></i>
-            </div>
-            <h4><sup>$</sup>0<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li class="na"><i class="bi bi-x"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li class="na"><i class="bi bi-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-          </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4">
-          <div class="pricing-item featured">
-            <h3>Business Plan</h3>
-            <div class="icon">
-              <i class="bi bi-rocket"></i>
-            </div>
-
-            <h4><sup>$</sup>29<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-          </div>
-        </div><!-- End Pricing Item -->
-
-        <div class="col-lg-4">
-          <div class="pricing-item">
-            <h3>Developer Plan</h3>
-            <div class="icon">
-              <i class="bi bi-send"></i>
-            </div>
-            <h4><sup>$</sup>49<span> / month</span></h4>
-            <ul>
-              <li><i class="bi bi-check"></i> <span>Quam adipiscing vitae proin</span></li>
-              <li><i class="bi bi-check"></i> <span>Nec feugiat nisl pretium</span></li>
-              <li><i class="bi bi-check"></i> <span>Nulla at volutpat diam uteera</span></li>
-              <li><i class="bi bi-check"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li><i class="bi bi-check"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <div class="text-center"><a href="#" class="buy-btn">Buy Now</a></div>
-          </div>
-        </div><!-- End Pricing Item -->
-
-      </div>
-
-    </div>
-
-  </section><!-- End Pricing Section -->
 
   <!-- Faq Section - Home Page -->
   <section id="faq" class="faq">
 
     <div class="container">
-
+  
       <div class="row gy-4">
-
+  
         <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
           <div class="content px-xl-5">
-            <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
+            <h3><span>Get Answers to</span> <strong>Your Questions</strong></h3>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+              Have queries about the upcoming event? Check out our frequently asked questions to find the information you need.
             </p>
           </div>
         </div>
-
+  
         <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
-
+  
           <div class="faq-container">
             <div class="faq-item faq-active">
-              <h3><span class="num">1.</span> <span>Non consectetur a erat nam at lectus urna duis?</span></h3>
+              <h3><span class="num">1.</span> <span>What details are provided on event tickets?</span></h3>
               <div class="faq-content">
-                <p>Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.</p>
+                <p>Event tickets typically include information about the event name, date, time, venue, and any special instructions or requirements. Make sure to review your ticket for all the essential details.</p>
               </div>
               <i class="faq-toggle bi bi-chevron-right"></i>
             </div><!-- End Faq item-->
-
+  
             <div class="faq-item">
-              <h3><span class="num">2.</span> <span>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</span></h3>
+              <h3><span class="num">2.</span> <span>How can I purchase tickets for an event?</span></h3>
               <div class="faq-content">
-                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <p>Buying tickets is easy! Simply visit our website, navigate to the event page, and follow the ticket purchase instructions. You can securely complete your transaction online and receive your tickets via email.</p>
               </div>
               <i class="faq-toggle bi bi-chevron-right"></i>
             </div><!-- End Faq item-->
-
+  
             <div class="faq-item">
-              <h3><span class="num">3.</span> <span>Dolor sit amet consectetur adipiscing elit pellentesque?</span></h3>
+              <h3><span class="num">3.</span> <span>Can I get a refund if I am unable to attend?</span></h3>
               <div class="faq-content">
-                <p>Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis</p>
+                <p>Refund policies vary for each event. Check the event details or contact our customer support for information on the refund process and any applicable terms and conditions.</p>
               </div>
               <i class="faq-toggle bi bi-chevron-right"></i>
             </div><!-- End Faq item-->
-
+  
             <div class="faq-item">
-              <h3><span class="num">4.</span> <span>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</span></h3>
+              <h3><span class="num">4.</span> <span>Are there age restrictions for events?</span></h3>
               <div class="faq-content">
-                <p>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.</p>
+                <p>Event age restrictions depend on the nature of the event. Some events may be suitable for all ages, while others may have specific age requirements. Refer to the event details for relevant information.</p>
               </div>
               <i class="faq-toggle bi bi-chevron-right"></i>
             </div><!-- End Faq item-->
-
+  
             <div class="faq-item">
-              <h3><span class="num">5.</span> <span>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</span></h3>
+              <h3><span class="num">5.</span> <span>How can I contact the event organizers?</span></h3>
               <div class="faq-content">
-                <p>Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in</p>
+                <p>If you have questions or need assistance, you can usually find contact information for event organizers on the event page. Alternatively, reach out to our customer support, and we'll be happy to help!</p>
               </div>
               <i class="faq-toggle bi bi-chevron-right"></i>
             </div><!-- End Faq item-->
-
+  
           </div>
-
+  
         </div>
       </div>
-
+  
     </div>
-
-  </section><!-- End Faq Section -->
+  
+  </section>
+  <!-- End Faq Section -->
 
   <!-- Team Section - Home Page -->
   <section id="team" class="team">
 
     <!--  Section Title -->
     <div class="container section-title" data-aos="fade-up">
-      <h2>Team</h2>
-      <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
+      <h2>Organizers</h2>
+      <p>Meet Our Wonderful Organizers</p>
     </div><!-- End Section Title -->
 
     <div class="container">
 
       <div class="row gy-5">
-
+        @foreach ($organizers as $organizer)
+          
         <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="100">
           <div class="member-img">
+            @if($organizer->hasMedia('media/users'))
+            <img src="{{$organizer->getFirstMediaUrl('media/users')}}" class="img-fluid" alt="">
+            @else
             <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="">
+            @endif
             <div class="social">
               <a href="#"><i class="bi bi-twitter"></i></a>
               <a href="#"><i class="bi bi-facebook"></i></a>
@@ -496,97 +405,11 @@
             </div>
           </div>
           <div class="member-info text-center">
-            <h4>Walter White</h4>
-            <span>Chief Executive Officer</span>
-            <p>Aliquam iure quaerat voluptatem praesentium possimus unde laudantium vel dolorum distinctio dire flow</p>
+            <h4>{{$organizer->username}}</h4>
+            <span>{{$organizer->email}}</span>
           </div>
         </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="200">
-          <div class="member-img">
-            <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info text-center">
-            <h4>Sarah Jhonson</h4>
-            <span>Product Manager</span>
-            <p>Labore ipsam sit consequatur exercitationem rerum laboriosam laudantium aut quod dolores exercitationem ut</p>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="300">
-          <div class="member-img">
-            <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info text-center">
-            <h4>William Anderson</h4>
-            <span>CTO</span>
-            <p>Illum minima ea autem doloremque ipsum quidem quas aspernatur modi ut praesentium vel tque sed facilis at qui</p>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="400">
-          <div class="member-img">
-            <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info text-center">
-            <h4>Amanda Jepson</h4>
-            <span>Accountant</span>
-            <p>Magni voluptatem accusamus assumenda cum nisi aut qui dolorem voluptate sed et veniam quasi quam consectetur</p>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="500">
-          <div class="member-img">
-            <img src="assets/img/team/team-5.jpg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info text-center">
-            <h4>Brian Doe</h4>
-            <span>Marketing</span>
-            <p>Qui consequuntur quos accusamus magnam quo est molestiae eius laboriosam sunt doloribus quia impedit laborum velit</p>
-          </div>
-        </div><!-- End Team Member -->
-
-        <div class="col-lg-4 col-md-6 member" data-aos="fade-up" data-aos-delay="600">
-          <div class="member-img">
-            <img src="assets/img/team/team-6.jpg" class="img-fluid" alt="">
-            <div class="social">
-              <a href="#"><i class="bi bi-twitter"></i></a>
-              <a href="#"><i class="bi bi-facebook"></i></a>
-              <a href="#"><i class="bi bi-instagram"></i></a>
-              <a href="#"><i class="bi bi-linkedin"></i></a>
-            </div>
-          </div>
-          <div class="member-info text-center">
-            <h4>Josepha Palas</h4>
-            <span>Operation</span>
-            <p>Sint sint eveniet explicabo amet consequatur nesciunt error enim rerum earum et omnis fugit eligendi cupiditate vel</p>
-          </div>
-        </div><!-- End Team Member -->
-
+        @endforeach
       </div>
 
     </div>
@@ -597,20 +420,22 @@
   <section id="call-to-action" class="call-to-action">
 
     <img src="assets/img/cta-bg.jpg" alt="">
-
+  
     <div class="container">
       <div class="row justify-content-center" data-aos="zoom-in" data-aos-delay="100">
         <div class="col-xl-10">
           <div class="text-center">
-            <h3>Call To Action</h3>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <a class="cta-btn" href="#">Call To Action</a>
+            <h3>Get Involved</h3>
+            <p>Join us for an unforgettable experience! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+            <a class="cta-btn" href="#">Explore Events</a>
           </div>
         </div>
       </div>
     </div>
-
-  </section><!-- End Call-to-action Section -->
+  
+  </section>
+  
+  <!-- End Call-to-action Section -->
 
   <!-- Testimonials Section - Home Page -->
   <section id="testimonials" class="testimonials">
