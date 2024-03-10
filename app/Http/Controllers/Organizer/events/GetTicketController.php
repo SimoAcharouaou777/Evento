@@ -23,7 +23,8 @@ class GetTicketController extends Controller
             $event->available_seats = $event->available_seats - 1;
             $event->save(); 
             $user->events()->attach($event->id, ['status' => $status]);
-            $pdf = Pdf::loadView('pdf', ['user'=>$user]);
+            
+            $pdf = Pdf::loadView('pdf', compact('user','event'));
             session()->flash('success', 'Ticket reservation successful!');
             return $pdf->download('invoice.pdf');
           
