@@ -79,21 +79,23 @@
         </nav>
 
         <div>
-            @if(auth()->check())
-                <a class="btn-getstarted" href="{{route('logout')}}">Logout</a>
-                @if(auth()->user()->hasRole('organizer'))
-                    <a class="btn-getstarted" href="{{route('organizer.index')}}">Dashboard</a>
-                @elseif (auth()->user()->hasRole('admin'))
-                    <a class="btn-getstarted" href="{{route('admin.index')}}">Admin Dashboard</a>
-                @else
-                    <a class="btn-getstarted" href="{{route('roleswitch') }}">Switch to Organizer</a>
-                @endif
-                <a class="btn-getstarted" href="{{route('profile.index')}}">Profile</a>
-            @else
-                <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
-                <a class="btn-getstarted" href="{{ route('register') }}">Sign Up</a>
-            @endif
-        </div>
+          @if(auth()->check())
+              <a class="btn-getstarted" href="{{ route('logout') }}">Logout</a>
+              @if(auth()->user()->hasRole('organizer'))
+                  <a class="btn-getstarted" href="{{ route('organizer.index') }}">Dashboard</a>
+                  <a class="btn-getstarted" href="{{ route('profile.index') }}">Profile</a>
+              @elseif (auth()->user()->hasRole('admin'))
+                  <a class="btn-getstarted" href="{{ route('admin.index') }}">Admin Dashboard</a>
+              @else
+                  <a class="btn-getstarted" href="{{ route('roleswitch') }}">Switch to Organizer</a>
+                  <a class="btn-getstarted" href="{{ route('profile.index') }}">Profile</a>
+              @endif
+          @else
+              <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+              <a class="btn-getstarted" href="{{ route('register') }}">Sign Up</a>
+          @endif
+      </div>
+      
 
     </div>
 </header>
