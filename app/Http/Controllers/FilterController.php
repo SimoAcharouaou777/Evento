@@ -20,7 +20,7 @@ class FilterController extends Controller
 
     public function FilterEvent($search){
 
-        if ($search == "AllEvent") {
+        if ($search == "AllEventFilter") {
             $events = Event::where('status', 'accepted')->get();
             return view('search', compact('events'));
         } else {
