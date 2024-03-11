@@ -37,8 +37,8 @@ class EventController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|after:now',
+            'end_date' => 'required|after:'.$request->start_date,
             'location' => 'required',
             'available_seats' => 'required',
             'category' => 'required',
@@ -85,8 +85,8 @@ class EventController extends Controller
         $data = $request->validate([
             'title' => 'required',
             'description' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required',
+            'start_date' => 'required|after:now',
+            'end_date' => 'required|after:'.$request->start_date,
             'location' => 'required',
             'available_seats' => 'required',
             'category' => 'required',
