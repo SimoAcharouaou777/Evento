@@ -91,5 +91,5 @@ Route::get('/notification', [NotificationsController::class, 'index'])->name('no
 
 
 //search 
-Route::get('/SearchEvent/{search}', [FilterController::class, 'search'])->name('SearchEvent');
+Route::get('/SearchEvent/{search}/{category}', [FilterController::class, 'search'])->name('SearchEvent');
 Route::get('/FilterEvent/{search}', [FilterController::class, 'FilterEvent'])->name('FilterEvent');
