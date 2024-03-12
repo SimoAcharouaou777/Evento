@@ -51,8 +51,12 @@
                 
                 @if($event->available_seats == 0)
                     <button class="btn btn-primary d-flex flex-column align-items-center" disabled>Sold Out</button>
-                @else
-                    <a href="{{route('getTicket',$event->id)}}" class="btn btn-primary d-flex flex-column align-items-center">Get a Ticket</a>
+                    @else
+                    @guest
+                        <a href="{{ route('register') }}" class="btn btn-primary d-flex flex-column align-items-center">Get a Ticket</a>
+                    @else
+                        <a href="{{route('getTicket',$event->id)}}" class="btn btn-primary d-flex flex-column align-items-center">Get a Ticket</a>
+                    @endguest
                 @endif
             </div>
         </div>
