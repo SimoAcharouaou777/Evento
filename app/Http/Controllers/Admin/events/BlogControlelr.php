@@ -12,7 +12,8 @@ class BlogControlelr extends Controller
     public function index()
     {
         $categories = Category::all();
-        $events = Event::where('status', 'accepted')->paginate(6);
+        $events = Event::with('organizer')->where('status', 'accepted')->paginate(6);
+     
         return view('blogs.blog', compact('events','categories'));
     }
 }
