@@ -17,3 +17,6 @@ class DetailsController extends Controller
         return view('details', compact('event'));
     }
 }
+
+// $event = Event::find($id);
+// Path: app/Http/Controllers/Admin/events/DetailsController.php
