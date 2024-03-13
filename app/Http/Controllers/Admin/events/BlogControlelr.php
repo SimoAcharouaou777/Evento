@@ -18,4 +18,3 @@ class BlogControlelr extends Controller
     }
 }
 
-// Path: app/Http/Controllers/Admin/events/DetailsController.php
