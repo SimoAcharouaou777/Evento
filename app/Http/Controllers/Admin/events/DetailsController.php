@@ -18,5 +18,3 @@ class DetailsController extends Controller
     }
 }
 
-// $event = Event::find($id);
-// Path: app/Http/Controllers/Admin/events/DetailsController.php
