@@ -17,3 +17,5 @@ class BlogControlelr extends Controller
         return view('blogs.blog', compact('events','categories'));
     }
 }
+
+// Path: app/Http/Controllers/Admin/events/DetailsController.php
