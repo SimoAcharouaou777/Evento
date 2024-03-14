@@ -134,6 +134,16 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @if (session('success'))
+                        <div class="alert alert-success">
+                            {{ session('success') }}
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="alert alert-danger">
+                            {{ session('error') }}
+                        </div>
+                    @endif
                     @foreach ($reservations as $partisipant)
                     @foreach ($partisipant->users as $user)
                     <tr>
@@ -173,7 +183,7 @@
                           </button>
                         </form>
                   
-                      <form action="" method="post">
+                      <form action="{{route('denieRequest', ['event' => $partisipant->id , 'user' => $user->id])}}" method="post">
                         @csrf
                         @method('PUT')
                         <button type="submit" class="btn btn-primary btn-sm" >Denie Request</button>
