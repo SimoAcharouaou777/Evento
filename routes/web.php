@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\events\BlogControlelr;
 use App\Http\Controllers\Admin\events\DetailsController;
 use App\Http\Controllers\Admin\events\ManageEventsController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommingSoonController;
 use App\Http\Controllers\FilterController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\HomeController;
@@ -61,6 +62,7 @@ Route::get('/details/{id}',[DetailsController::class, 'index'])->name('details')
 Route::get('/getTicket/{id}', [GetTicketController::class, 'getTicket'])->name('getTicket');
 Route::get('/partisipant',[PartisipantController::class, 'index'])->name('partisipant')->middleware('role:organizer');
 Route::put('/acceptRequest/{event}/{user}', [PartisipantController::class, 'acceptRequest'])->name('acceptRequest')->middleware('role:organizer');
+Route::put('/denieRequest/{event}/{user}', [PartisipantController::class, 'denieRequest'])->name('denieRequest')->middleware('role:organizer');
 Route::put('/downloadTicket/{event}', [GetTicketController::class, 'downloadTicket'])->name('downloadTicket');
 // Handle the request to send a password reset link
 Route::post('/forgot-password', [ForgotPasswordController::class, 'sendResetLinkEmail'])->name('password.email');
@@ -93,3 +95,4 @@ Route::get('/notification', [NotificationsController::class, 'index'])->name('no
 //search 
 Route::get('/SearchEvent/{search}/{category}', [FilterController::class, 'search'])->name('SearchEvent');
 Route::get('/FilterEvent/{search}', [FilterController::class, 'FilterEvent'])->name('FilterEvent');
+Route::get('/CommingSoon', [CommingSoonController::class, 'index'])->name('CommingSoon');
