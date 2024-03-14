@@ -48,32 +48,32 @@
             <span>.</span>
         </a>
 
-        <nav id="navmenu" class="navmenu">
+        <nav  class="navmenu">
             <ul>
                 <li><a href="{{route('home')}}" class="active">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Portfolio</a></li>
-                <li><a href="#">Team</a></li>
+                <li><a href="{{route('CommingSoon')}}">About</a></li>
+                <li><a href="{{route('CommingSoon')}}">Services</a></li>
+                <li><a href="{{route('CommingSoon')}}">Portfolio</a></li>
+                <li><a href="{{route('CommingSoon')}}">Team</a></li>
                 <li><a href="{{route('blog')}}">Events</a></li>
                 <li class="dropdown has-dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down"></i></a>
                     <ul class="dd-box-shadow">
-                        <li><a href="#">Dropdown 1</a></li>
-                        <li class="dropdown has-dropdown"><a href="#"><span>Deep Dropdown</span> <i class="bi bi-chevron-down"></i></a>
+                        <li><a href="{{route('CommingSoon')}}">Dropdown 1</a></li>
+                        <li class="dropdown has-dropdown"><a href="{{route('CommingSoon')}}"><span>Deep Dropdown</span> <i class="bi bi-chevron-down"></i></a>
                             <ul class="dd-box-shadow">
-                                <li><a href="#">Deep Dropdown 1</a></li>
-                                <li><a href="#">Deep Dropdown 2</a></li>
-                                <li><a href="#">Deep Dropdown 3</a></li>
-                                <li><a href="#">Deep Dropdown 4</a></li>
-                                <li><a href="#">Deep Dropdown 5</a></li>
+                                <li><a href="{{route('CommingSoon')}}">Deep Dropdown 1</a></li>
+                                <li><a href="{{route('CommingSoon')}}">Deep Dropdown 2</a></li>
+                                <li><a href="{{route('CommingSoon')}}">Deep Dropdown 3</a></li>
+                                <li><a href="{{route('CommingSoon')}}">Deep Dropdown 4</a></li>
+                                <li><a href="{{route('CommingSoon')}}">Deep Dropdown 5</a></li>
                             </ul>
                         </li>
-                        <li><a href="#">Dropdown 2</a></li>
-                        <li><a href="#">Dropdown 3</a></li>
-                        <li><a href="#">Dropdown 4</a></li>
+                        <li><a href="{{route('CommingSoon')}}">Dropdown 2</a></li>
+                        <li><a href="{{route('CommingSoon')}}">Dropdown 3</a></li>
+                        <li><a href="{{route('CommingSoon')}}">Dropdown 4</a></li>
                     </ul>
                 </li>
-                <li><a href="index.html#contact">Contact</a></li>
+                <li><a href="{{route('CommingSoon')}}">Contact</a></li>
             </ul>
             <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
         </nav>
@@ -116,10 +116,10 @@
           </a>
           <p>Experience the joy of events. Your gateway to unforgettable moments. Join us on this exciting journey!</p>
           <div class="social-links d-flex mt-4">
-            <a href="#"><i class="bi bi-twitter"></i></a>
-            <a href="#"><i class="bi bi-facebook"></i></a>
-            <a href="#"><i class="bi bi-instagram"></i></a>
-            <a href="#"><i class="bi bi-linkedin"></i></a>
+            {{-- <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a> --}}
+            <a href="https://www.instagram.com/mohamed_acharouaou/"><i class="bi bi-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/mohamed-acharouaou"><i class="bi bi-linkedin"></i></a>
           </div>
         </div>
   
@@ -149,8 +149,8 @@
           <p>123 Event Street</p>
           <p>New York, NY 10001</p>
           <p>United States</p>
-          <p class="mt-4"><strong>Phone:</strong> <span>+1 555 1234 5678</span></p>
-          <p><strong>Email:</strong> <span>info@evento.com</span></p>
+          <p class="mt-4"><strong>Phone:</strong> <span>+2126 46 20 55 24</span></p>
+          <p><strong>Email:</strong> <span>acharouaoumohamed@gmail.com</span></p>
         </div>
       </div>
     </div>
